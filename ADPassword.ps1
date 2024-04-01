@@ -15,7 +15,7 @@ function Set-Password(){
         Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureString -AsPlainText (Get-Password) -Force) -WhatIf
     }
     catch {
-        'User nicht vorhanden'
+        Out-Null
     }
 }
 Set-Password
