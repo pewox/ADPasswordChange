@@ -8,8 +8,8 @@ function Get-Password(
     }
     return $password
 }
+
 function Set-Password(){
-    
     try {
         $user = (Get-ADUser krbtgt -ErrorAction Stop).SamAccountName
         Set-ADAccountPassword -Identity $user -Reset -NewPassword (ConvertTo-SecureString -AsPlainText (Get-Password) -Force) -WhatIf
